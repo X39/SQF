@@ -1,0 +1,11 @@
+/* #Dugigu
+$[
+	1.063,
+	["X39_Teleport_GUI_TeleportView",[[0,0,1,1],0.025,0.04,"GUI_GRID"],0,1,0],
+	[1500,"TeleportPointsList",[1,"",["0.18125 * safezoneW + safezoneX","0.16 * safezoneH + safezoneY","0.6375 * safezoneW","0.714 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[2600,"RscMenuButton",[1,"Teleport",["0.611562 * safezoneW + safezoneX","0.891 * safezoneH + safezoneY","0.207187 * safezoneW","0.034 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[2700,"RscCancelButton",[1,"",["0.18125 * safezoneW + safezoneX","0.891 * safezoneH + safezoneY","0.207187 * safezoneW","0.034 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1100,"",[1,"Bitte wÃ¤hle einen Teleportpunkt",["0.18125 * safezoneW + safezoneX","0.075 * safezoneH + safezoneY","0.6375 * safezoneW","0.068 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[2400,"RscRenameButton",[1,"Umbenennen",["0.396406 * safezoneW + safezoneX","0.891 * safezoneH + safezoneY","0.207187 * safezoneW","0.034 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]]
+]
+*/

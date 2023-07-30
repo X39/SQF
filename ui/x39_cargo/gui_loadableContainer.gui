@@ -1,0 +1,10 @@
+/* #Dobica
+$[
+	1.063,
+	["X39_Cargo_GUI_LoadableContainer",[[0,0,1,1],0.025,0.04,"GUI_GRID"],0,1,0],
+	[1500,"RscListBox_CargoList",[1,"",["0.190625 * safezoneW + safezoneX","0.291 * safezoneH + safezoneY","0.61875 * safezoneW","0.418 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1600,"RscButton_Unload",[1,"Entladen",["0.515469 * safezoneW + safezoneX","0.731 * safezoneH + safezoneY","0.293906 * safezoneW","0.044 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1601,"RscButton_Abort",[1,"Abbrechen",["0.190625 * safezoneW + safezoneX","0.731 * safezoneH + safezoneY","0.293906 * safezoneW","0.044 * safezoneH"],[-1,-1,-1,-1],[-1,-1,-1,-1],[-1,-1,-1,-1],"","-1"],[]],
+	[1100,"RscStructuredText_NameAndSpaceDisplay",[1,"RscStructuredText_NameAndSpaceDisplay",["0.190625 * safezoneW + safezoneX","0.225 * safezoneH + safezoneY","0.61875 * safezoneW","0.044 * safezoneH"],[1,1,1,1],[0,0,0,0.3],[-1,-1,-1,-1],"","-1"],[]]
+]
+*/

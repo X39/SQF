@@ -1,0 +1,15 @@
+class X39_Persistency
+{
+    class Mission
+    {
+        file = "functions\x39_persistency";
+        class Init { preInit = 1; };
+        class StateController;
+        class GetState;
+        class SetState;
+        class Save;
+        class Load;
+        class CanPersist;
+        class SetPersist;
+    };
+};

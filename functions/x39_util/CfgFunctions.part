@@ -1,0 +1,11 @@
+class X39_Util
+{
+    class Category
+    {
+        file = "functions\x39_util";
+        class VehicleSpawner;
+        class AutoRespawnOnEmpty;
+        class Unpackable;
+        class CodeToString;
+    }
+}

@@ -1,0 +1,9 @@
+class X39_Teleport
+{
+    class Mission
+    {
+        file = "functions\x39_teleport";
+        class Init { preInit = 1; };
+        class InitializeTeleporter;
+    };
+};

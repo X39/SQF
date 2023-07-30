@@ -1,0 +1,47 @@
+class X39_Insurgency
+{
+    class Mission
+    {
+        file = "functions\x39_insurgency";
+        class AnnounceIntelPickUp;
+        class AnnounceObjectiveDestroyed;
+        class ApplyGridChanges;
+        class CreateInsurgent;
+        class CreateIntelChanced;
+        class CreateObjectives;
+        class CreateServerObject;
+        class GetServerObject;
+        class IsVisibleToPlayer;
+        class OnInsurgentKilled;
+        class OnIntelPickedUp;
+        class OnObjectiveDestroyed;
+        class PlayerEnterGrid;
+        class PlayerExitGrid;
+        class PlayerLoop;
+        class PlayerMovedGrid;
+        class PostInit { postInit = 1; };
+        class ToGridPosition;
+        class ServerLoop;
+        class PushToServerDelayedQueue;
+        class PopFromServerDelayedQueue;
+    };
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+class X39_Cargo
+{
+    class Mission
+    {
+        file = "functions\x39_cargo";
+        class InitializeCargoObject;
+        class Init { preInit = 1; };
+        class InitializeVehicleObject;
+        class LoadableContainer;
+    };
+};

@@ -1,0 +1,11 @@
+class X39_TreeChopping
+{
+    class Mission
+    {
+        file = "functions\x39_treechopping";
+        class Init { preInit = 1; };
+        class addChopAction;
+        class addChopAction;
+        class addChoppedTree;
+    };
+};

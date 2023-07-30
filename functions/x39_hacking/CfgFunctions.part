@@ -1,0 +1,14 @@
+class X39_Hacking
+{
+    class Mission
+    {
+        file = "functions\x39_hacking";
+        class MakeHackable;
+        class StartHack;
+        class HackLoop;
+        class StartHackProgress;
+        class UpdateHackProgress;
+        class EndHackProgress;
+        class Init {postInit = 1;};
+    };
+};
