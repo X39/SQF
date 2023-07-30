@@ -42,6 +42,7 @@ X39_Insurgency_var_MinInsurgentsPerGridOnPresent = 2;
 X39_Insurgency_var_MaxInsurgentsPerGrid = 5;
 X39_Insurgency_var_MaxSpeedToRegisterGridChangeInKmh = 30;
 X39_Insurgency_var_InsurgentSide = independent;
+X39_Insurgency_var_ServerDelayedQueue = [];
 
 if (isServer) then {
     [] call X39_Insurgency_fnc_CreateServerObject;
@@ -60,7 +61,6 @@ if (isServer) then {
         [_unit, _gridPos, 0, _netId] call X39_Insurgency_fnc_PlayerMovedGrid;
         false;
     }];
-    /*
     X39_Insurgency_var_ServerLoop = [] spawn X39_Insurgency_fnc_ServerLoop;
     [] spawn {
         while {true} do {
@@ -70,7 +70,7 @@ if (isServer) then {
                 X39_Insurgency_var_ServerLoop = [] spawn X39_Insurgency_fnc_ServerLoop;
             };
         }
-    };*/
+    };
 };
 
 
