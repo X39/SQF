@@ -1,4 +1,4 @@
-#include "macros.hpp";
+#include "macros.hpp"
 /*
  *  Internal method, called once an ammo-cache was exploded.
  *  

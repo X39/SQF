@@ -1,4 +1,4 @@
-#include "macros.hpp";
+#include "macros.hpp"
 /*
  *  Internal method, called once intel was picked up.
  *  Adds Intel to the map for the closest active objective.

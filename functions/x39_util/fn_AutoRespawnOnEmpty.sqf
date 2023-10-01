@@ -32,7 +32,7 @@ if (_minDistance < (boundingBox _vehicle select 2)) exitWith {
         waitUntil
         {
             sleep 1;
-            isNull _vehicle || { _vehicle distance _position > _minDistance }
+            isNull _vehicle || { getPosASL _vehicle distance _position > _minDistance }
         };
         isNil
         {

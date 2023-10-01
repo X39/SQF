@@ -9,7 +9,6 @@
 ALLOW_SERVER_ONLY();
 
 if (count X39_Insurgency_var_ServerDelayedQueue == 0) exitWith { nil };
-private _index = count X39_Insurgency_var_ServerDelayedQueue;
-private _element = X39_Insurgency_var_ServerDelayedQueue select _index;
-X39_Insurgency_var_ServerDelayedQueue deleteAt _index;
+private _element = X39_Insurgency_var_ServerDelayedQueue select 0;
+X39_Insurgency_var_ServerDelayedQueue deleteAt 0;
 _element

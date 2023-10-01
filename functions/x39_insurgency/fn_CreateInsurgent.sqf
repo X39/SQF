@@ -68,8 +68,8 @@ private _unit = _group createUnit [_unitClass, _buildingPosition, [], 0, "NONE"]
 _unit addEventHandler ["KILLED", { _this call X39_Insurgency_fnc_OnInsurgentKilled; }];
 _unit setVariable ["X39_Insurgency_var_Grid", _gridHashMap];
 _unit switchMove "AmovPpneMstpSrasWrflDnon"; // Will make any stuck unit unstuck
-DEBUG_MSG1("Created unit %1 being part of group %2 at position %3", _unit, _group _buildingPosition);
+DEBUG_MSG3("Created unit %1 being part of group %2 at position %3", _unit, _group, _buildingPosition);
 if (isNull _unit) then {
     ["Failed to create unit in group %1 at position %2", _group, _buildingPosition] call BIS_fnc_error;
 };
-_unit
+_unit 

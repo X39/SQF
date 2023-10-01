@@ -62,12 +62,12 @@ if !isNil "_newGridPos" then {
 private _changedGrids = [];
 {
     _changedGrids pushBack _x;
-    [_player, _x, _netId] call X39_Insurgency_fnc_PlayerEnterGrid;
-} forEach (_newGrids select { !(_x in _oldGrids) });
-{
-    _changedGrids pushBack _x;
     [_player, _x, _netId] call X39_Insurgency_fnc_PlayerExitGrid;
 } forEach (_oldGrids select { !(_x in _newGrids) });
+{
+    _changedGrids pushBack _x;
+    [_player, _x, _netId] call X39_Insurgency_fnc_PlayerEnterGrid;
+} forEach (_newGrids select { !(_x in _oldGrids) });
 
 
 if (count _changedGrids != count (_changedGrids arrayIntersect _changedGrids)) exitWith

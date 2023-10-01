@@ -35,7 +35,6 @@ X39_Insurgency_var_InsurgentClassNames = [
         "I_C_Soldier_Bandit_8_F"
 ];
 X39_Insurgency_var_MaxSpawnDistance = 300;
-X39_Insurgency_var_MaxSpeedToRegisterGridChangeInKmh = 100;
 X39_Insurgency_var_IntelDropChance = 0.25;
 X39_Insurgency_var_InsurgentsPerPlayer = 1.5;
 X39_Insurgency_var_MinInsurgentsPerGridOnPresent = 2;
@@ -43,6 +42,7 @@ X39_Insurgency_var_MaxInsurgentsPerGrid = 5;
 X39_Insurgency_var_MaxSpeedToRegisterGridChangeInKmh = 30;
 X39_Insurgency_var_InsurgentSide = independent;
 X39_Insurgency_var_ServerDelayedQueue = [];
+X39_Insurgency_var_ServerDelayedDelay = 0.25;
 
 if (isServer) then {
     [] call X39_Insurgency_fnc_CreateServerObject;
