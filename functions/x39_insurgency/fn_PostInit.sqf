@@ -1,5 +1,24 @@
 #include "macros.hpp"
 
+// These two flags may be used to disable the insurgency system to a certain degree, making it possible to use the system as a framework for other missions
+// or as auto-spawn system. All of theese variables can be considered to be "constants" and should not be changed during runtime (restarting the mission is required)
+ASSIGN_IF_NIL(X39_Insurgency_var_EnableInsurgencySystem, true); // If set to false, the insurgency system will not be enabled at all.
+ASSIGN_IF_NIL(X39_Insurgency_var_CreateMarkers, true);          // If set to false, no markers will be created.
+ASSIGN_IF_NIL(X39_Insurgency_var_CreateIntel, true);            // If set to false, no intel will be created (or picked up).
+
+if !X39_Insurgency_var_EnableInsurgencySystem exitWith {};
+
+// Recapture
+ASSIGN_IF_NIL(X39_Insurgency_var_AdjacentRecapture, true);  // If set to false, adjacent recapture will not be enabled. If set to true, adjacent objectives may be recaptured.
+ASSIGN_IF_NIL(X39_Insurgency_var_RandomRecapture, true);    // If set to false, random recapture will not be enabled. If set to true, a random objective may be recaptured every X seconds.
+X39_Insurgency_var_MinRecaptureDistance = 1000;             // Minimum distance of any player to the objective to recapture it.
+X39_Insurgency_var_MinAdjacentRecaptureTime = 300;          // Determines the minimum time needed to recapture an adjacent objective.
+X39_Insurgency_var_MedAdjacentRecaptureTime = 600;          // Determines the medium time needed to recapture an adjacent objective.
+X39_Insurgency_var_MaxAdjacentRecaptureTime = 900;          // Determines the maximum time needed to recapture an adjacent objective.
+X39_Insurgency_var_RecaptureRandomChance = 0.1;             // Determines the chance of a recapture to be random (true) or based on the time (false).
+X39_Insurgency_var_RecaptureRandomTimeout = 300;            // Determines the time needed to pass before a random recapture can happen again.
+
+// Configuration
 X39_Insurgency_var_ObjectiveClassNames = ["Box_FIA_Wps_F"];
 X39_Insurgency_var_ObjectiveMinExplosionDamage = 8;
 X39_Insurgency_var_Distances = [
@@ -35,7 +54,8 @@ X39_Insurgency_var_InsurgentClassNames = [
         "I_C_Soldier_Bandit_8_F"
 ];
 X39_Insurgency_var_MaxSpawnDistance = 300;
-X39_Insurgency_var_IntelDropChance = 0.25;
+X39_Insurgency_var_MinSpawnDistance = 50;
+X39_Insurgency_var_IntelDropChance = 0.15;
 X39_Insurgency_var_InsurgentsPerPlayer = 1.5;
 X39_Insurgency_var_MinInsurgentsPerGridOnPresent = 2;
 X39_Insurgency_var_MaxInsurgentsPerGrid = 5;
@@ -44,7 +64,7 @@ X39_Insurgency_var_InsurgentSide = independent;
 X39_Insurgency_var_ServerDelayedQueue = [];
 X39_Insurgency_var_ServerDelayedDelay = 0.25;
 
-if (isServer) then {
+if isServer then {
     [] call X39_Insurgency_fnc_CreateServerObject;
     [] call X39_Insurgency_fnc_CreateObjectives;
 
@@ -74,7 +94,7 @@ if (isServer) then {
 };
 
 
-if (hasInterface) then {
+if hasInterface then {
 
     // Remove exclude markers
     {

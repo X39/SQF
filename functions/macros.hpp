@@ -19,3 +19,5 @@
 #define ALLOW_INTERFACE_ONLY() if !hasInterface exitWith { ["%1: hasInterface was expected to be true (no interface).", _fnc_scriptName] call BIS_fnc_error; }
 
 #define FORCE_SERVER_ONLY() if !isServer exitWith { _this remoteExecCall [_fnc_scriptName, 2, false]; }
+
+#define ASSIGN_IF_NIL(VARIABLE, VALUE) if isNil #VARIABLE then { VARIABLE =VALUE; }

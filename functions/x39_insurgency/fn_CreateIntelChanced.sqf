@@ -7,6 +7,7 @@
  *  @locality server
  */
 
+if !X39_Insurgency_var_CreateIntel  exitWith {};
 ALLOW_SERVER_ONLY();
 params ["_position", "_gridHashMap"];
 private _chance = random 1;

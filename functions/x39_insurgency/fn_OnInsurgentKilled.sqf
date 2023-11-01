@@ -23,11 +23,13 @@ if (_unitIndex == -1) exitWith {
 _activeUnits deleteAt _unitIndex;
 
 if (count _activeUnits == 0) then {
-    private _marker = _gridHashMap get "Marker";
-    if isNil "_marker" exitWith {
-        ["Failed to get grid Marker of grid %1", _gridHashMap] call BIS_fnc_error;
+    if X39_Insurgency_var_CreateMarkers then {
+        private _marker = _gridHashMap get "Marker";
+        if isNil "_marker" exitWith {
+            ["Failed to get grid Marker of grid %1", _gridHashMap] call BIS_fnc_error;
+        };
+        _marker setMarkerColor "ColorGreen";
     };
-    _marker setMarkerColor "ColorGreen";
     _gridHashMap set ["IsActive", false];
 };
 DEBUG_MSG2("Unit killed in %1, remaining: %2", _gridHashMap, count _activeUnits);

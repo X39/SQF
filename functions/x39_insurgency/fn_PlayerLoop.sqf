@@ -38,11 +38,13 @@ while { true } do {
         };
         _previousSpeed = _speed;
 
-        // Handle intel pickup
-        {
-            if (_x getVariable ["X39_Insurgency_var_IsIntel", true]) then {
-                [_x] remoteExecCall ["X39_Insurgency_fnc_OnIntelPickedUp", 2];
-            }
-        } forEach nearestObjects [_player, X39_Insurgency_var_IntelClassNames, 5];
+        if X39_Insurgency_var_CreateIntel then {
+            // Handle intel pickup
+            {
+                if (_x getVariable ["X39_Insurgency_var_IsIntel", true]) then {
+                    [_x] remoteExecCall ["X39_Insurgency_fnc_OnIntelPickedUp", 2];
+                }
+            } forEach nearestObjects [_player, X39_Insurgency_var_IntelClassNames, 5];
+        };
     };
 };
