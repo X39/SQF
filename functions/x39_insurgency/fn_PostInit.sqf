@@ -18,6 +18,28 @@ X39_Insurgency_var_MaxAdjacentRecaptureTime = 900;          // Determines the ma
 X39_Insurgency_var_RecaptureRandomChance = 0.1;             // Determines the chance of a recapture to be random (true) or based on the time (false).
 X39_Insurgency_var_RecaptureRandomTimeout = 300;            // Determines the time needed to pass before a random recapture can happen again.
 
+// // Random Vehicle Patrols
+// ASSIGN_IF_NIL(X39_Insurgency_var_RandomPatrols, true);      // If set to false, random patrols will not be enabled. If set to true, random patrols will be enabled.
+// X39_Insurgency_var_MinRandomPatrolDistance = 1000;          // Minimum distance of any player to the objective to spawn a random patrol.
+// X39_Insurgency_var_MinRandomPatrolTime = 300;               // Determines the minimum time needed to spawn a random patrol.
+// X39_Insurgency_var_MedRandomPatrolTime = 600;               // Determines the medium time needed to spawn a random patrol.
+// X39_Insurgency_var_MaxRandomPatrolTime = 900;               // Determines the maximum time needed to spawn a random patrol.
+// X39_Insurgency_var_MaxPatrolsActive = 10;                   // Determines the maximum amount of patrols that can be active at the same time.
+// X39_Insurgency_var_PatrolSpawnChance = 1.0;                 // Determines the chance of a patrol to be spawned.
+// X39_Insurgency_var_PatrolConfigurations = [];               // Array of patrol configurations: [[<"UNIT"|"VEHICLE">, <CLASSNAME>, <COUNT>], ...]
+
+// // Side Objectives
+// ASSIGN_IF_NIL(X39_Insurgency_var_SideObjectives, true);      // If set to false, side objectives will not be enabled. If set to true, side objectives will be enabled.
+// X39_Insurgency_var_MinSideObjectiveDistance = 1000;          // Minimum distance of any player to the objective to spawn a side objective.
+// X39_Insurgency_var_MinSideObjectiveTime = 300;               // Determines the minimum time needed to spawn a side objective.
+// X39_Insurgency_var_MedSideObjectiveTime = 600;               // Determines the medium time needed to spawn a side objective.
+// X39_Insurgency_var_MaxSideObjectiveTime = 900;               // Determines the maximum time needed to spawn a side objective.
+// X39_Insurgency_var_MaxSideObjectivesActive = 2;              // Determines the maximum amount of side objectives that can be active at the same time.
+// X39_Insurgency_var_SideObjectiveSpawnChance = 0.25;          // Determines the chance of a side objective to be spawned.
+// X39_Insurgency_var_SideObjectiveMarkers = [];                // The markers containing the side objectives. The markers will be deleted once the side objectives are gathered.
+//                                                              // If the markers text (not name!) is "KEEP_POSITION", the side objective will always be spawned at the marker position.
+//                                                              // If the marker is not existing, the entry will be ignored and no error will be thrown.
+
 // Configuration
 X39_Insurgency_var_ObjectiveClassNames = ["Box_FIA_Wps_F"];
 X39_Insurgency_var_ObjectiveMinExplosionDamage = 8;
