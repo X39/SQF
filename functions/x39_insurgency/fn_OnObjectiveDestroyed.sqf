@@ -34,6 +34,6 @@ if !isNull _cache then { private _index = _caches find _cache; if (_index != -1)
 [count _caches] remoteExecCall ["X39_Insurgency_fnc_AnnounceObjectiveDestroyed", 0, false];
 
 // End mission if done
-if (count _caches == 0) then {
+if ({!isNull _x && {alive _x}} count _caches == 0) then {
     ["end1", true, true, true, true] call BIS_fnc_endMission;
 };
