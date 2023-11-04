@@ -31,5 +31,8 @@ if (count _activeUnits == 0) then {
         _marker setMarkerColor "ColorGreen";
     };
     _gridHashMap set ["IsActive", false];
+    _gridHashMap set ["PlayerCount", 0];
+    _gridHashMap set ["UTargetUnitsnits", 0];
+    _gridHashMap set ["ActiveUnitCount", 0];
 };
 DEBUG_MSG2("Unit killed in %1, remaining: %2", _gridHashMap, count _activeUnits);

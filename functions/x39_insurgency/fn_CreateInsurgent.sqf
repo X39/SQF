@@ -28,16 +28,18 @@ if (isNil "_group" || {isNull _group}) then {
     if isNil "_group" exitWith {
         ["Failed to create group for grid %1", _gridHashMap] call BIS_fnc_error;
     };
-    private _waypoint = _group addWaypoint [_center, -1];
+    private _atlCenter = ASLToATL _center;
+    _atlCenter set [2, 0];
+    private _waypoint = _group addWaypoint [_atlCenter, -1];
     _waypoint setWaypointBehaviour "AWARE";
     _waypoint setWaypointType "MOVE";
-    _waypoint = _group addWaypoint [_center, -1];
+    _waypoint = _group addWaypoint [_atlCenter, -1];
     _waypoint setWaypointBehaviour "AWARE";
     _waypoint setWaypointType "SAD";
-    _waypoint = _group addWaypoint [_center, -1];
+    _waypoint = _group addWaypoint [_atlCenter, -1];
     _waypoint setWaypointType "CYCLE";
     _gridHashMap set ["Group", _group];
-    DEBUG_MSG1("Created Group, guarding grid %1", _center);
+    DEBUG_MSG1("Created Group, guarding grid %1", _atlCenter);
 };
 
 
@@ -49,7 +51,7 @@ while {isNil "_buildingPosition" && count _buildings > 0} do {
     private _buildingPositions = _randomHouse buildingPos -1;
     while {isNil "_buildingPosition" && count _buildingPositions > 0} do {
         _buildingPosition = _buildingPositions select floor random count _buildingPositions;
-        if ([_buildingPosition] call X39_fnc_InsurgencyIsVisibleToPlayer) then {
+        if ([_buildingPosition] call X39_Insurgency_fnc_IsVisibleToPlayer) then {
             _buildingPositions deleteAt (_buildingPositions find _buildingPosition);
             DEBUG_MSG2("Skipping position %1 of house %1 as IsVisibleToPlayer returned true", _buildingPosition, _randomHouse);
             _buildingPosition = nil;

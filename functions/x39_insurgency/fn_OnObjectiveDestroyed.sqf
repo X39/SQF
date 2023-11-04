@@ -7,25 +7,22 @@
 
 ALLOW_SERVER_ONLY();
 params [
-    ["_cache", objNull, [objnull]],
-    ["_position", nil, [[0,0,0], nil]],
-    ["_markers", nil, [[], nil]]
+    ["_hashMap", nil, [createHashMap]]
 ];
+if isNil "_hashMap" exitWith {
+    ["OnObjectiveDestroyed got passed a nil hashmap"] call BIS_fnc_error;
+};
 
-if isNil "_position" then { _position = getPosWorld _cache; };
-if isNil "_markers" then { _markers = _cache getVariable ["X39_Insurgency_var_Markers", []]; };
+private _cache = _hashMap get "Cache";
+private _markers = _hashMap get "Markers";
 
-
-DEBUG_MSG1("Objective destroyed at %1", _position);
+DEBUG_MSG1("Objective destroyed at %1", (_hashMap get "Position"));
 private _insurgency = [] call X39_Insurgency_fnc_GetServerObject;
 private _caches = _insurgency getOrDefault ["Objectives", [], true];
 
-
-// Delete NULL caches
-{ private _index = _caches find _x; if (_index != -1) then { _caches deleteAt _index; }; } forEach (_caches select { isNull _x });
-
 // Delete Cache
-if !isNull _cache then { private _index = _caches find _cache; if (_index != -1) then { _caches deleteAt _index; }; deleteVehicle _cache; };
+private _index = _caches find _hashMap; if (_index != -1) then { _caches deleteAt _index; };
+if !isNull _cache then { deleteVehicle _cache; };
 
 // Delete markers of cache
 { deleteMarker _x; } forEach _markers;

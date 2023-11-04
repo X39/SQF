@@ -46,30 +46,30 @@ for "_i" from 0 to X39_Insurgency_var_ObjectiveCount do {
     
     // Create objective object
     private _cache = createVehicle [_className, _randomBuildingPosition];
+    private _objective = createHashMapFromArray [
+        ["Type", "Supply"],
+        ["Position", _randomBuildingPosition],
+        ["Grid", _randomGrid],
+        ["Building", _randomBuilding],
+        ["Cache", _cache],
+        ["CacheClass", _className],
+        ["Markers", []],
+        ["DistanceIndex", count X39_Insurgency_var_Distances - 1]
+    ];
+    _cache setVariable ["X39_Insurgency_var_Objective", _objective];
     _objectives pushBack _cache;
     _cache addEventHandler ["HandleDamage", {
-        params ["_cache", "_selection", "_damage"];
+        params ["_cache", "", "_damage"];
         DEBUG_MSG2("Cache %1 received damage of %2", _cache, _damage);
-        _unit setVariable ["X39_Insurgency_var_LastDamageReceived", _damage];
+        _cache setVariable ["X39_Insurgency_var_LastDamageReceived", _damage];
         0
     }];
     _cache addEventHandler ["Explosion", {
-        params ["_cache", "_damage", "_source"];
+        params ["_cache", "_damage"];
         private _lastDamage = _cache getVariable ["X39_Insurgency_var_LastDamageReceived", _damage];
         DEBUG_MSG3("Cache %1 received explosion damage of %2 (last damage: %3)", _cache, _damage, _lastDamage);
         if (_lastDamage < X39_Insurgency_var_ObjectiveMinExplosionDamage) exitWith {};
-        [_cache] remoteExecCall ["X39_Insurgency_fnc_OnObjectiveDestroyed", 2, false];
-    }];
-    // Required to handle the cases when someone (eg. ACE3) messes with the damage and just randomly kills the entity or deletes it
-    _cache addEventHandler ["Killed", {
-        params ["_cache"];
-        [_cache] remoteExecCall ["X39_Insurgency_fnc_OnObjectiveDestroyed", 2, false];
-    }];
-    _cache addEventHandler ["Deleted", {
-        params ["_cache"];
-        private _position = getPosWorld _cache;
-        private _markers = _cache getVariable ["X39_Insurgency_var_Markers", []];
-        [objNull, _position, _markers] remoteExecCall ["X39_Insurgency_fnc_OnObjectiveDestroyed", 2, false];
+        [_cache getVariable "X39_Insurgency_var_Objective"] remoteExecCall ["X39_Insurgency_fnc_OnObjectiveDestroyed", 2, false];
     }];
     
     // Output debug message

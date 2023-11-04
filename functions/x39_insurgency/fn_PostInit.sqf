@@ -15,7 +15,7 @@ X39_Insurgency_var_MinRecaptureDistance = 1000;             // Minimum distance 
 X39_Insurgency_var_MinAdjacentRecaptureTime = 300;          // Determines the minimum time needed to recapture an adjacent objective.
 X39_Insurgency_var_MedAdjacentRecaptureTime = 600;          // Determines the medium time needed to recapture an adjacent objective.
 X39_Insurgency_var_MaxAdjacentRecaptureTime = 900;          // Determines the maximum time needed to recapture an adjacent objective.
-X39_Insurgency_var_RecaptureRandomChance = 0.1;             // Determines the chance of a recapture to be random (true) or based on the time (false).
+X39_Insurgency_var_RecaptureRandomChance = 0.01;            // Determines the chance of a recapture to be random (true) or based on the time (false).
 X39_Insurgency_var_RecaptureRandomTimeout = 300;            // Determines the time needed to pass before a random recapture can happen again.
 
 // // Random Vehicle Patrols
@@ -43,9 +43,9 @@ X39_Insurgency_var_RecaptureRandomTimeout = 300;            // Determines the ti
 // Configuration
 X39_Insurgency_var_ObjectiveClassNames = ["Box_FIA_Wps_F"];
 X39_Insurgency_var_ObjectiveMinExplosionDamage = 8;
-X39_Insurgency_var_Distances = [
-    [50,25],
-    [100,50],
+X39_Insurgency_var_Distances = [                                // Distances array, where the first distance is the smallest and the last distance is the largest.
+    [50,25],                                                    // The first value is the distance in meters, the second value is the amount of randomnes in meters
+    [100,50],                                                   // (e.g. 50,25 means that the distance will be between 25 and 50 meters)
     [150,100],
     [200,150],
     [300,200],
