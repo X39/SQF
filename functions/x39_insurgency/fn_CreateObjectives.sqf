@@ -57,7 +57,7 @@ for "_i" from 0 to X39_Insurgency_var_ObjectiveCount do {
         ["DistanceIndex", count X39_Insurgency_var_Distances - 1]
     ];
     _cache setVariable ["X39_Insurgency_var_Objective", _objective];
-    _objectives pushBack _cache;
+    _objectives pushBack _objective;
     _cache addEventHandler ["HandleDamage", {
         params ["_cache", "", "_damage"];
         DEBUG_MSG2("Cache %1 received damage of %2", _cache, _damage);

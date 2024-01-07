@@ -12,6 +12,8 @@
     #define DEBUG_MSG3(TXT, ARG1, ARG2, ARG3)
 #endif
 
+#define CONCAT(A, B) A##B
+
 #define ACCEPT_SERVER_ONLY() if !isServer exitWith { DEBUG_MSG1("Exiting function %1 as locality only accepts server", _fnc_scriptName); }
 #define ACCEPT_INTERFACE_ONLY() if !hasInterface exitWith { DEBUG_MSG1("Exiting function %1 as locality only accepts server", _fnc_scriptName); }
 

@@ -18,19 +18,19 @@ private _markers = _hashMap get "Markers";
 
 DEBUG_MSG1("Objective destroyed at %1", (_hashMap get "Position"));
 private _insurgency = [] call X39_Insurgency_fnc_GetServerObject;
-private _caches = _insurgency getOrDefault ["Objectives", [], true];
+private _objectives = _insurgency getOrDefault ["Objectives", [], true];
 
 // Delete Cache
-private _index = _caches find _hashMap; if (_index != -1) then { _caches deleteAt _index; };
+private _index = _objectives find _hashMap; if (_index != -1) then { _objectives deleteAt _index; };
 if !isNull _cache then { deleteVehicle _cache; };
 
 // Delete markers of cache
 { deleteMarker _x; } forEach _markers;
 
 // Announce the destroyed objective
-[count _caches] remoteExecCall ["X39_Insurgency_fnc_AnnounceObjectiveDestroyed", 0, false];
+[count _objectives] remoteExecCall ["X39_Insurgency_fnc_AnnounceObjectiveDestroyed", 0, false];
 
 // End mission if done
-if ({!isNull _x && {alive _x}} count _caches == 0) then {
-    ["end1", true, true, true, true] call BIS_fnc_endMission;
+if (count _objectives == 0) then {
+    ["end1", true, true, true, true] remoteExecCall ["BIS_fnc_endMission", 0, false];
 };

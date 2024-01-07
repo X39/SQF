@@ -14,16 +14,16 @@ while { true } do {
             (_res # 0) call (_res # 1);
             false
         };
-    } else {
-        sleep X39_Insurgency_var_ServerDelayedDelay;
     };
     
-    {
-        private _cache = _x get "Cache";
-        if (isNull _cache || { !alive _cache }) then {
-            [_x] call X39_Insurgency_fnc_OnObjectiveDestroyed;
-        };
-    } forEach (_insurgency get "Objectives");
+    if (_ticks mod 250 == 0) then {
+        {
+            private _cache = _x get "Cache";
+            if (isNull _cache || { !alive _cache }) then {
+                [_x] call X39_Insurgency_fnc_OnObjectiveDestroyed;
+            };
+        } forEach (_insurgency get "Objectives");
+    };
     
 
     if (_ticks mod 1000 == 0) then {
@@ -39,7 +39,7 @@ while { true } do {
                             if (_x distance _position > X39_Insurgency_var_MinRecaptureDistance) exitWith { false };
                             true
                         } forEach allPlayers;
-                        if _distanceOk then {
+                        if (!isNil "_distanceOk" && { _distanceOk }) then {
                             private _chance = random 1;
                             if (_chance < X39_Insurgency_var_RecaptureRandomChance) then {
                                 _y set ["IsActive", true];
@@ -69,7 +69,7 @@ while { true } do {
                             if (_x distance _position > X39_Insurgency_var_MinRecaptureDistance) exitWith { false };
                             true
                         } forEach allPlayers;
-                        if _distanceOk then {
+                        if (!isNil "_distanceOk" && { _distanceOk }) then {
                             private _adjacentFound = false;
                             scopeName "OutOfLoop";
                             // Check if any active objective is around this one

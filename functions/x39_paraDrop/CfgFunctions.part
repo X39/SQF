@@ -1,0 +1,10 @@
+class X39_ParaDrop
+{
+    class General
+    {
+        file = "functions\x39_paraDrop";
+        class Add;
+        class Drop;
+        class ShowMapSelection;
+    };
+};

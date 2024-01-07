@@ -28,8 +28,7 @@ if (isNil "_group" || {isNull _group}) then {
     if isNil "_group" exitWith {
         ["Failed to create group for grid %1", _gridHashMap] call BIS_fnc_error;
     };
-    private _atlCenter = ASLToATL _center;
-    _atlCenter set [2, 0];
+    private _atlCenter = ATLToASL [_center#0, _center#1, 0];
     private _waypoint = _group addWaypoint [_atlCenter, -1];
     _waypoint setWaypointBehaviour "AWARE";
     _waypoint setWaypointType "MOVE";

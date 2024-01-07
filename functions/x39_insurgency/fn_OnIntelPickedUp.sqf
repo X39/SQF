@@ -50,6 +50,6 @@ _marker setMarkerColor X39_Insurgency_var_IntelMarkerColor;
 _marker setMarkerShape "ICON";
 _marker setMarkerType X39_Insurgency_var_IntelMarkerType;
 _marker setMarkerText str (_distanceTuple # 0);
-_markers pushBack [_marker];
+_markers pushBack _marker;
 remoteExecCall ["X39_Insurgency_fnc_AnnounceIntelPickUp", 0, false];
 DEBUG_MSG3("Added intel at %1 for objective at %2 from pickup at %3", _markerPosition, _closestObjectivePosition, _intelPosition);
