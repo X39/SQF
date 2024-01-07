@@ -1,0 +1,8 @@
+class X39_Checkpoint
+{
+    class Mission
+    {
+        file = "functions\x39_checkpoint";
+        // class test { postInit = 1; };
+    };
+};
